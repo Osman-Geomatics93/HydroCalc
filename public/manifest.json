@@ -1,0 +1,25 @@
+{
+  "name": "HydroCalc — Open Channel Flow",
+  "short_name": "HydroCalc",
+  "description": "Interactive open channel flow calculator for hydraulic engineering",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf8",
+  "theme_color": "#2d6a4f",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "utilities"]
+}
