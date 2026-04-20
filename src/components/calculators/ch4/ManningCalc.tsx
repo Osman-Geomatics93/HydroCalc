@@ -112,7 +112,7 @@ export default function ManningCalc() {
       <PresetSelector calculatorId="ch4-manning" onSelect={handlePreset} />
 
       <div id="ch4-manning-export" className="space-y-6">
-        <div data-tutorial="inputs" className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div data-tutorial="inputs" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v)} options={shapeOptions} />
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
             <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
@@ -133,7 +133,7 @@ export default function ManningCalc() {
           <InputField label="Friction Slope (Sf)" value={Sf} onChange={setSf} step={0.0001} min={0} glossaryTerm="friction-slope" />
         </div>
 
-        <div data-tutorial="results" className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div data-tutorial="results" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Velocity (V)" value={V} unit={labels.velocity} highlight />
           <ResultCard label="Discharge (Q)" value={Q} unit={labels.discharge} highlight />
           <ResultCard label="Flow Area (A)" value={geo.A} unit={labels.area} />

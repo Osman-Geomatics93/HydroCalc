@@ -81,7 +81,7 @@ export default function ReachClassificationCalc() {
         {result.error ? (
           <div className="error-banner bg-red-50 text-red-700 p-4 rounded-[6px]">{result.error}</div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <ResultCard label="Normal Depth (yn)" value={result.yn} unit={labels.length} />
             <ResultCard label="Critical Depth (yc)" value={result.yc} unit={labels.length} />
             <ResultCard label="Critical Slope (Sc)" value={result.Sc} />

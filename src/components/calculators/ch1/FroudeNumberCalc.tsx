@@ -62,7 +62,7 @@ export default function FroudeNumberCalc() {
       <PresetSelector calculatorId="ch1-froude" onSelect={handlePreset} />
 
       <div id="ch1-froude-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v)} options={shapeOptions} />
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
             <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
@@ -77,7 +77,7 @@ export default function FroudeNumberCalc() {
           <InputField label="Discharge (Q)" value={Q} onChange={setQ} unit={labels.discharge} min={0} />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Velocity (V)" value={V} unit={labels.velocity} />
           <ResultCard label="Hydraulic Depth (D)" value={geo.D} unit={labels.length} />
           <ResultCard label="Froude Number" value={Fr} highlight />

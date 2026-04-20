@@ -100,7 +100,7 @@ export function AppLayout() {
       <InstallPrompt />
       <div className="flex flex-1 min-h-0">
         <Sidebar />
-        <main id="main-content" className="flex-1 overflow-y-auto p-8 lg:p-12 bg-[var(--color-bg)]">
+        <main id="main-content" className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 lg:p-12 bg-[var(--color-bg)]">
           <Outlet context={{ comparisonActive }} />
         </main>
       </div>

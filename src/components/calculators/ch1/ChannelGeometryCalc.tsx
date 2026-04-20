@@ -87,7 +87,7 @@ export default function ChannelGeometryCalc() {
       <PresetSelector calculatorId="ch1-geometry" onSelect={handlePreset} />
 
       <div id="ch1-geometry-export" className="space-y-6">
-        <div data-tutorial="inputs" className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div data-tutorial="inputs" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v)} options={shapeOptions} />
 
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
@@ -103,7 +103,7 @@ export default function ChannelGeometryCalc() {
           <InputField label="Discharge (Q)" value={Q} onChange={setQ} unit={labels.discharge} min={0} glossaryTerm="discharge" />
         </div>
 
-        <div data-tutorial="results" className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div data-tutorial="results" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Flow Area (A)" value={geo.A} unit={labels.area} />
           <ResultCard label="Wetted Perimeter (P)" value={geo.P} unit={labels.length} />
           <ResultCard label="Hydraulic Radius (R)" value={geo.R} unit={labels.length} />

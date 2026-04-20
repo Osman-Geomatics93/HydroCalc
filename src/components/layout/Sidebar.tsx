@@ -100,7 +100,7 @@ const navGroups: NavGroup[] = [
 // Collect all nav items for favorites lookup
 const allNavItems = navGroups.flatMap((g) => g.items);
 
-function NavGroupComponent({ group }: { group: NavGroup }) {
+function NavGroupComponent({ group, onNavClick }: { group: NavGroup; onNavClick?: () => void }) {
   const [open, setOpen] = useLocalStorage(`hydro-nav-${group.title}`, true);
   const { toggleFavorite, isFavorite } = useFavorites();
 
@@ -121,6 +121,7 @@ function NavGroupComponent({ group }: { group: NavGroup }) {
             <div key={item.path} className="flex items-center group/nav">
               <NavLink
                 to={item.path}
+                onClick={onNavClick}
                 className={({ isActive }) =>
                   `flex-1 block px-3 py-1.5 text-sm rounded-[6px] transition-[background-color,color,border-color] duration-200 ${
                     isActive
@@ -154,12 +155,14 @@ export function Sidebar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { favorites } = useFavorites();
 
+  const closeMobile = () => setMobileOpen(false);
+
   const favoriteItems = favorites
     .map((path) => allNavItems.find((item) => item.path === path))
     .filter(Boolean) as NavItem[];
 
   const sidebarFooter = (
-    <div className="border-t border-[var(--color-border)] px-4 py-3 space-y-2">
+    <div className="border-t border-[var(--color-border)] px-4 py-3 space-y-2" style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}>
       <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-subtle)]">
         Built by Osman Ibrahim
       </p>
@@ -188,11 +191,12 @@ export function Sidebar() {
     </div>
   );
 
-  const sidebarContent = (
+  const renderSidebarContent = (onNavClick?: () => void) => (
     <nav aria-label="Main navigation" className="p-3 space-y-1 overflow-y-auto flex-1">
       <NavLink
         to="/"
         end
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm font-semibold rounded-[6px] transition-[background-color,color] duration-200 mb-2 ${
             isActive
@@ -215,6 +219,7 @@ export function Sidebar() {
               <NavLink
                 key={item.path}
                 to={item.path}
+                onClick={onNavClick}
                 className={({ isActive }) =>
                   `block px-3 py-1.5 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
                     isActive
@@ -231,13 +236,14 @@ export function Sidebar() {
       )}
 
       {navGroups.map((group) => (
-        <NavGroupComponent key={group.title} group={group} />
+        <NavGroupComponent key={group.title} group={group} onNavClick={onNavClick} />
       ))}
       <div className="mt-4 mb-1 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-subtle)]">
         Tools
       </div>
       <NavLink
         to="/design-wizard"
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
             isActive
@@ -250,6 +256,7 @@ export function Sidebar() {
       </NavLink>
       <NavLink
         to="/workflow"
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
             isActive
@@ -262,6 +269,7 @@ export function Sidebar() {
       </NavLink>
       <NavLink
         to="/case-studies"
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
             isActive
@@ -274,6 +282,7 @@ export function Sidebar() {
       </NavLink>
       <NavLink
         to="/batch"
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
             isActive
@@ -290,6 +299,7 @@ export function Sidebar() {
       </div>
       <NavLink
         to="/cheat-sheet"
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
             isActive
@@ -302,6 +312,7 @@ export function Sidebar() {
       </NavLink>
       <NavLink
         to="/reference"
+        onClick={onNavClick}
         className={({ isActive }) =>
           `flex items-center gap-2 px-3 py-2 text-sm rounded-[6px] transition-[background-color,color] duration-200 ${
             isActive
@@ -317,29 +328,30 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile toggle */}
+      {/* Mobile toggle — left side */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="lg:hidden fixed top-3 right-4 z-50 bg-[var(--color-accent)] text-white p-2 rounded-[6px] shadow-[var(--shadow-md)] no-print"
+        className="lg:hidden fixed top-3 left-3 z-50 bg-[var(--color-accent)] text-white p-2 rounded-[6px] shadow-[var(--shadow-md)] no-print"
+        aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
       >
         {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>
 
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex flex-col w-64 bg-[var(--color-bg)] border-r border-[var(--color-border)] min-h-0">
-        {sidebarContent}
+        {renderSidebarContent()}
         {sidebarFooter}
       </aside>
 
       {/* Mobile sidebar overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden backdrop-blur-sm" onClick={() => setMobileOpen(false)}>
+        <div className="fixed inset-0 z-40 lg:hidden backdrop-blur-sm" onClick={closeMobile}>
           <div className="absolute inset-0 bg-black/20" />
           <aside
             className="absolute left-0 top-0 bottom-0 w-72 bg-[var(--color-surface)] shadow-[var(--shadow-lg)] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            {sidebarContent}
+            {renderSidebarContent(closeMobile)}
             {sidebarFooter}
           </aside>
         </div>

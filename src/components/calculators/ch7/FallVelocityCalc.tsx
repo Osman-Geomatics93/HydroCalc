@@ -47,7 +47,7 @@ export default function FallVelocityCalc() {
           <InputField label="Specific Gravity (SG)" value={SG} onChange={setSG} min={1.01} step={0.01} />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Stokes Velocity" value={result.wsStokes} unit={labels.velocity} />
           <ResultCard label="Rubey Velocity" value={result.wsRubey} unit={labels.velocity} highlight />
           <ResultCard label="Re (Stokes)" value={result.ReStokes} />

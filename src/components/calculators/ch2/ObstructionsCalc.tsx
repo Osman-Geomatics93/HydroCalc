@@ -63,7 +63,7 @@ export default function ObstructionsCalc() {
       <PresetSelector calculatorId="ch2-obstructions" onSelect={handlePreset} />
 
       <div id="ch2-obstructions-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Obstruction Type" value={type} onChange={setType} options={typeOptions} />
           <InputField label="Channel Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
           <InputField label="Upstream Depth (y₁)" value={y1} onChange={setY1} unit={labels.length} min={0.01} />
@@ -78,7 +78,7 @@ export default function ObstructionsCalc() {
 
         {result ? (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <ResultCard label="Upstream Energy (E₁)" value={result.E1} unit={labels.length} />
               <ResultCard label="Downstream Energy (E₂)" value={result.E2} unit={labels.length} />
               <ResultCard label="Downstream Depth (y₂)" value={result.y2} unit={labels.length} highlight />

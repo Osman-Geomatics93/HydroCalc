@@ -71,7 +71,7 @@ export default function AlternateDepthsCalc() {
       <PresetSelector calculatorId="ch2-alternate" onSelect={handlePreset} />
 
       <div id="ch2-alternate-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v)} options={shapeOptions} />
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
             <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
@@ -90,7 +90,7 @@ export default function AlternateDepthsCalc() {
           <div className="error-banner bg-red-50 text-red-700 p-4 rounded-[6px]">{result.error}</div>
         ) : (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <ResultCard label="Specific Energy" value={result.E} unit={labels.length} />
               <ResultCard label="Subcritical Depth" value={result.alt!.sub} unit={labels.length} highlight />
               <ResultCard label="Supercritical Depth" value={result.alt!.sup} unit={labels.length} highlight />

@@ -115,6 +115,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -348,4 +349,11 @@ input[type="range"].hydro-slider::-moz-range-thumb {
     color: #999;
     text-align: center;
   }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 640px) {
+  .katex { font-size: 0.9em; }
+  input[type="range"].hydro-slider::-webkit-slider-thumb { width: 22px; height: 22px; }
+  input[type="range"].hydro-slider::-moz-range-thumb { width: 22px; height: 22px; }
 }

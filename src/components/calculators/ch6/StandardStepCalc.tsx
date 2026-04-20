@@ -72,7 +72,7 @@ export default function StandardStepCalc() {
       <PresetSelector calculatorId="ch6-step" onSelect={handlePreset} />
 
       <div id="ch6-step-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
           <InputField label="Discharge (Q)" value={Q} onChange={setQ} unit={labels.discharge} min={0.01} />
           <InputField label="Manning's n" value={n} onChange={setN} step={0.001} min={0.001} />
@@ -90,7 +90,7 @@ export default function StandardStepCalc() {
           <div className="error-banner bg-red-50 text-red-700 p-4 rounded-[6px]">{result.error}</div>
         ) : (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <ResultCard label="Normal Depth (yn)" value={result.yn} unit={labels.length} />
               <ResultCard label="Critical Depth (yc)" value={result.yc} unit={labels.length} />
               <ResultCard label="Steps Computed" value={result.steps.length} />

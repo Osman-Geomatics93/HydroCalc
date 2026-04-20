@@ -77,7 +77,7 @@ export default function CombinedEnergyMomentumCalc() {
           <div className="error-banner bg-red-50 text-red-700 p-4 rounded-[6px]">{result.error}</div>
         ) : (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <ResultCard label="Specific Energy" value={result.E} unit={labels.length} />
               <ResultCard label="Momentum Function" value={result.M} unit={`${labels.length}²`} />
               {result.alt && <ResultCard label="Alternate Depth (sub)" value={result.alt.sub} unit={labels.length} />}

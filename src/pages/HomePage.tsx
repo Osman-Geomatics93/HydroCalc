@@ -34,7 +34,7 @@ const chapters: ChapterCard[] = [
 export default function HomePage() {
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="mb-12 animate-in animate-in-1">
+      <div className="mb-6 sm:mb-12 animate-in animate-in-1">
         <h1
           className="font-bold text-[var(--color-text)] mb-3"
           style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}
@@ -52,7 +52,7 @@ export default function HomePage() {
           <Link
             key={ch.chapter}
             to={ch.link}
-            className={`group bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[6px] p-6 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300 animate-in animate-in-${i + 2}`}
+            className={`group bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[6px] p-4 sm:p-6 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300 animate-in animate-in-${i + 2}`}
             style={{ transitionTimingFunction: 'var(--ease-premium)' }}
           >
             <div className="flex items-center gap-2 mb-3">

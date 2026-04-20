@@ -72,7 +72,7 @@ export function ParameterSweep({ paramDefs, baseInputs, calcFn, outputLabels }: 
 
       {open && (
         <div className="px-4 pb-4 space-y-4 border-t border-[var(--color-border)]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-3">
             <div>
               <label className="text-[13px] font-medium text-[var(--color-text-muted)]">Parameter</label>
               <select

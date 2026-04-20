@@ -79,7 +79,7 @@ export default function BedLoadCalc() {
           <InputField label="Channel Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Flow Intensity (\u03A8)" value={result.psi} />
           <ResultCard label="Transport Intensity (\u03A6)" value={result.phi} />
           <ResultCard label="Unit Bed Load (qs)" value={result.qs} unit={volUnit} highlight />

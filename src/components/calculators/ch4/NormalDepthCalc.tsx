@@ -75,7 +75,7 @@ export default function NormalDepthCalc() {
       <PresetSelector calculatorId="ch4-normal" onSelect={handlePreset} />
 
       <div id="ch4-normal-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v)} options={shapeOptions} />
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
             <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
@@ -101,7 +101,7 @@ export default function NormalDepthCalc() {
         ) : (
           <>
           <SmartWarnings warnings={getFlowWarnings({ y: result.yn, yc: result.yc, n, S0 })} />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <ResultCard label="Normal Depth (yn)" value={result.yn} unit={labels.length} highlight />
             <ResultCard label="Normal Velocity (Vn)" value={result.Vn} unit={labels.velocity} />
             <ResultCard label="Flow Area (An)" value={result.An} unit={labels.area} />

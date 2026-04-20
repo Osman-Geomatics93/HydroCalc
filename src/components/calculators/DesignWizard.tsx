@@ -179,7 +179,7 @@ export default function DesignWizard() {
                     </span>
                   )}
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
                   {r.b > 0 && <ResultCard label="Bottom Width (b)" value={r.b} unit={labels.length} />}
                   {r.m > 0 && <ResultCard label="Side Slope (m)" value={r.m} unit="H:V" />}
                   <ResultCard label="Normal Depth (yn)" value={r.yn} unit={labels.length} highlight />

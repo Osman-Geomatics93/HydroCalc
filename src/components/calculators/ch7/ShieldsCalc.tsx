@@ -68,14 +68,14 @@ export default function ShieldsCalc() {
       <PresetSelector calculatorId="ch7-shields" onSelect={handlePreset} />
 
       <div id="ch7-shields-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <InputField label="Particle Diameter" value={d} onChange={setD} unit="mm" min={0.01} step={0.1} />
           <InputField label="Specific Gravity" value={SG} onChange={setSG} min={1.01} step={0.01} />
           <InputField label="Hydraulic Radius (R)" value={R} onChange={setR} unit={labels.length} min={0.01} />
           <InputField label="Friction Slope (Sf)" value={Sf} onChange={setSf} step={0.0001} min={0} />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Bed Shear (τ₀)" value={result.tau0} unit={units === 'SI' ? 'N/m²' : 'lb/ft²'} />
           <ResultCard label="Shields Parameter (τ*)" value={result.tauStar} />
           <ResultCard label="Critical τ*" value={result.tauStarCr} />

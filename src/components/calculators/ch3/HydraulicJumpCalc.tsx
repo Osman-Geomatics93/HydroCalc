@@ -63,7 +63,7 @@ export default function HydraulicJumpCalc() {
       <PresetSelector calculatorId="ch3-jump" onSelect={handlePreset} />
 
       <div id="ch3-jump-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v as ChannelShape)} options={shapeOptions} />
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
             <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
@@ -79,7 +79,7 @@ export default function HydraulicJumpCalc() {
           <div className="error-banner bg-red-50 text-red-700 p-4 rounded-[6px]">{result.error}</div>
         ) : (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               <ResultCard label="Upstream Depth (y₁)" value={result.data!.y1} unit={labels.length} />
               <ResultCard label="Downstream Depth (y₂)" value={result.data!.y2} unit={labels.length} highlight />
               <ResultCard label="Upstream Fr₁" value={result.data!.Fr1} />

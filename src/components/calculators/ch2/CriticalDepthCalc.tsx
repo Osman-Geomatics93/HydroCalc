@@ -62,7 +62,7 @@ export default function CriticalDepthCalc() {
       <PresetSelector calculatorId="ch2-critical" onSelect={handlePreset} />
 
       <div id="ch2-critical-export" className="space-y-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--color-surface)] p-6 rounded-[6px] border border-[var(--color-border)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-[var(--color-surface)] p-4 sm:p-6 rounded-[6px] border border-[var(--color-border)]">
           <SelectField label="Channel Shape" value={shape} onChange={(v) => setShape(v)} options={shapeOptions} />
           {(shape === 'rectangular' || shape === 'trapezoidal') && (
             <InputField label="Bottom Width (b)" value={b} onChange={setB} unit={labels.length} min={0.1} />
@@ -76,7 +76,7 @@ export default function CriticalDepthCalc() {
           <InputField label="Discharge (Q)" value={Q} onChange={setQ} unit={labels.discharge} min={0.01} />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <ResultCard label="Critical Depth (yc)" value={crit.yc} unit={labels.length} highlight />
           <ResultCard label="Critical Velocity (Vc)" value={crit.Vc} unit={labels.velocity} />
           <ResultCard label="Critical Energy (Ec)" value={crit.Ec} unit={labels.length} />
