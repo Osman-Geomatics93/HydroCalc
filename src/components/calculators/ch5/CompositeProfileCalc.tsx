@@ -30,7 +30,7 @@ export default function CompositeProfileCalc() {
   const [reportOpen, setReportOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
 
-  const params: ChannelParams = { shape: 'rectangular', b };
+  const params: ChannelParams = useMemo(() => ({ shape: 'rectangular', b }), [b]);
 
   const result = useMemo(() => {
     try {
@@ -42,7 +42,7 @@ export default function CompositeProfileCalc() {
     } catch {
       return { yn: 0, yc: 0, slope: null, profile: null, error: 'Computation error' };
     }
-  }, [Q, n, S0, b, y, units, g]);
+  }, [Q, n, S0, params, y, units, g]);
 
   const handlePreset = (values: Record<string, number | string>) => {
     if (values.b !== undefined) setB(Number(values.b));

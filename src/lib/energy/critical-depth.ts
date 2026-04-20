@@ -28,7 +28,7 @@ export function criticalDepth(Q: number, g: number, params: ChannelParams): numb
   };
 
   // Upper bound: for circular channels cap at diameter; otherwise use adaptive search
-  let upper = params.shape === 'circular' ? (params.d! * 0.999) : 50;
+  const upper = params.shape === 'circular' ? (params.d! * 0.999) : 50;
 
   // Adaptive bracketing: scan to find a sign change
   const lower = 1e-6;

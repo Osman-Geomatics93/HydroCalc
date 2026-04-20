@@ -1,11 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 import Plotly from 'plotly.js-dist-min';
 import type { Data, Layout } from 'plotly.js';
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 import factoryModule from 'react-plotly.js/factory';
 import { useTheme } from '../../context/ThemeContext';
 import { useEffect, useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createPlotlyComponent = typeof factoryModule === 'function' ? factoryModule : (factoryModule as any).default;
 const Plot = createPlotlyComponent(Plotly);
 
@@ -16,16 +15,18 @@ interface PlotWrapperProps {
   xLabel?: string;
   yLabel?: string;
   height?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: (event: any) => void;
 }
 
 export function PlotWrapper({ data, layout = {}, title, xLabel, yLabel, height = 450, onClick }: PlotWrapperProps) {
   const { isDark } = useTheme();
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);

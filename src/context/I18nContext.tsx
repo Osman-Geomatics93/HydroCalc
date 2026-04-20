@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
@@ -33,6 +34,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
 
     if (translationCache[locale]) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTranslations(translationCache[locale]!);
       return;
     }

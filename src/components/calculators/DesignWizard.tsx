@@ -35,10 +35,9 @@ export default function DesignWizard() {
     setSelectedShapes((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
   };
 
-  const constraints: DesignConstraints = { Q, n, S0, maxVelocity: goal === 'erosion' ? maxV : undefined, freeboard };
-
   const results = useMemo<DesignResult[]>(() => {
     if (step < 3) return [];
+    const constraints: DesignConstraints = { Q, n, S0, maxVelocity: goal === 'erosion' ? maxV : undefined, freeboard };
     return selectedShapes.map((shape) => {
       try {
         return designChannel(constraints, shape, units, g);
@@ -46,7 +45,7 @@ export default function DesignWizard() {
         return null;
       }
     }).filter(Boolean) as DesignResult[];
-  }, [step, selectedShapes, constraints, units, g]);
+  }, [step, selectedShapes, Q, n, S0, goal, maxV, freeboard, units, g]);
 
   // Find best result (lowest P = most efficient)
   const bestIdx = results.length > 0

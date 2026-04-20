@@ -65,6 +65,7 @@ export function MYDiagram({ Q, g, params, yMax = 5, y1, y2, lengthUnit, onDepthS
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (event: any) => {
     if (!onDepthSelect || !event.points || event.points.length === 0) return;
     const clickedY = event.points[0].y;
@@ -82,6 +83,7 @@ export function MYDiagram({ Q, g, params, yMax = 5, y1, y2, lengthUnit, onDepthS
         yLabel={`Depth y (${lengthUnit})`}
         layout={{
           yaxis: { range: [0, yMax] },
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(onDepthSelect ? { dragmode: false as any, hovermode: 'closest' as const } : {}),
         }}
         onClick={onDepthSelect ? handleClick : undefined}

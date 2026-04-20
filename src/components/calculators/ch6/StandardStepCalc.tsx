@@ -32,7 +32,7 @@ export default function StandardStepCalc() {
   const [shareOpen, setShareOpen] = useState(false);
   const [view3D, setView3D] = useState(false);
 
-  const params: ChannelParams = { shape: 'rectangular', b };
+  const params: ChannelParams = useMemo(() => ({ shape: 'rectangular', b }), [b]);
 
   const result = useMemo(() => {
     try {
@@ -47,7 +47,7 @@ export default function StandardStepCalc() {
     } catch {
       return { steps: [], yn: 0, yc: 0, error: 'Computation error' };
     }
-  }, [y0, Q, S0, n, g, b, dx, nSteps, direction, units]);
+  }, [y0, Q, S0, n, g, params, dx, nSteps, direction, units]);
 
   const handlePreset = (values: Record<string, number | string>) => {
     if (values.b !== undefined) setB(Number(values.b));

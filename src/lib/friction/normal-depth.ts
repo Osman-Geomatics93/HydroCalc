@@ -24,7 +24,7 @@ export function normalDepth(
   };
 
   // Upper bound: for circular channels cap at diameter
-  let upper = params.shape === 'circular' ? (params.d! * 0.999) : 50;
+  const upper = params.shape === 'circular' ? (params.d! * 0.999) : 50;
 
   // Adaptive bracketing
   const lower = 1e-6;

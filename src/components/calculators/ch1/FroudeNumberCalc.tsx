@@ -39,7 +39,7 @@ export default function FroudeNumberCalc() {
   const V = geo.A > 0 ? Q / geo.A : 0;
   const Fr = froudeNumber(V, g, geo.D);
   const regime = classifyFlow(Fr);
-  const warnings = useMemo(() => getFlowWarnings({ Fr, y }), [Fr, y]);
+  const warnings = getFlowWarnings({ Fr, y });
 
   const handlePreset = (values: Record<string, number | string>) => {
     if (values.shape !== undefined) setShape(String(values.shape));

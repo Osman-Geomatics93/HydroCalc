@@ -28,7 +28,7 @@ export default function BedLoadCalc() {
     const qs = bedLoadRate(phi, dUnits, SG, g);
     const Qs = totalBedLoad(qs, b);
     return { psi, phi, qs, Qs };
-  }, [d, SG, R, Sf, b, units, g]);
+  }, [gammaS, gammaW, dUnits, R, Sf, b, SG, g]);
 
   const volUnit = units === 'SI' ? 'm\u00b3/s/m' : 'ft\u00b3/s/ft';
   const totalUnit = units === 'SI' ? 'm\u00b3/s' : 'ft\u00b3/s';

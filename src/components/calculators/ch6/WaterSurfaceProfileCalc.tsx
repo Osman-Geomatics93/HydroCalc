@@ -34,7 +34,7 @@ export default function WaterSurfaceProfileCalc() {
   const [shareOpen, setShareOpen] = useState(false);
   const [view3D, setView3D] = useState(false);
 
-  const params: ChannelParams = { shape: 'rectangular', b };
+  const params: ChannelParams = useMemo(() => ({ shape: 'rectangular', b }), [b]);
 
   const result = useMemo(() => {
     try {
@@ -56,7 +56,7 @@ export default function WaterSurfaceProfileCalc() {
     } catch {
       return { steps: [], yn: 0, yc: 0, slope: null, profile: null, error: 'Computation error' };
     }
-  }, [y0, Q, S0, n, g, b, units]);
+  }, [y0, Q, S0, n, g, params, units]);
 
   const handlePreset = (values: Record<string, number | string>) => {
     if (values.b !== undefined) setB(Number(values.b));

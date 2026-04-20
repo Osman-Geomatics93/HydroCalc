@@ -24,7 +24,7 @@ export default function ObstructionsCalc() {
   const [dz, setDz] = useUrlState('dz', 0.3);
   const [b2, setB2] = useUrlState('b2', 3);
 
-  const params: ChannelParams = { shape: 'rectangular', b };
+  const params: ChannelParams = useMemo(() => ({ shape: 'rectangular', b }), [b]);
 
   const result = useMemo(() => {
     try {
@@ -36,7 +36,7 @@ export default function ObstructionsCalc() {
     } catch {
       return null;
     }
-  }, [type, y1, Q, g, dz, b, b2]);
+  }, [type, y1, Q, g, dz, b, b2, params]);
 
   const handlePreset = (values: Record<string, number | string>) => {
     if (values.type !== undefined) setType(String(values.type));

@@ -26,6 +26,7 @@ export function TutorialOverlay({ tutorial, onClose }: TutorialOverlayProps) {
   }, [currentStep]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     updateRect();
     window.addEventListener('resize', updateRect);
     window.addEventListener('scroll', updateRect);
@@ -35,9 +36,11 @@ export function TutorialOverlay({ tutorial, onClose }: TutorialOverlayProps) {
     };
   }, [updateRect]);
 
-  useEffect(() => {
+  const [prevTutorial, setPrevTutorial] = useState(tutorial);
+  if (tutorial !== prevTutorial) {
+    setPrevTutorial(tutorial);
     setStep(0);
-  }, [tutorial]);
+  }
 
   const handleNext = () => {
     if (!tutorial) return;

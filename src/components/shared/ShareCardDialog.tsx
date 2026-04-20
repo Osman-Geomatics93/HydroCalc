@@ -24,7 +24,6 @@ export function ShareCardDialog({ onClose, data }: ShareCardDialogProps) {
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
     generateShareCard(data).then((b) => {
       if (cancelled) return;
       setBlob(b);

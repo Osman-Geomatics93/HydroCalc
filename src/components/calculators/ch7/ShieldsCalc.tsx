@@ -47,7 +47,7 @@ export default function ShieldsCalc() {
     const motion = isMotion(tau0, tauCr);
 
     return { tau0, tauStar, uStar, reStar, tauStarCr, tauCr, motion };
-  }, [d, SG, R, Sf, units]);
+  }, [gammaS, gammaW, dUnits, rho, nu, R, Sf]);
 
   const handlePreset = (values: Record<string, number | string>) => {
     if (values.d !== undefined) setD(Number(values.d));

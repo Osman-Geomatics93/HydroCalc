@@ -46,14 +46,14 @@ export default function ManningCalc() {
   const geo = computeGeometry(params, y);
   const V = manningVelocity(n, geo.R, Sf, units);
   const Q = manningDischarge(n, geo.A, geo.R, Sf, units);
-  const Fr = useMemo(() => geo.A > 0 ? froudeFromQ(Q, units === 'SI' ? 9.81 : 32.2, geo) : 0, [Q, units, geo]);
+  const Fr = geo.A > 0 ? froudeFromQ(Q, units === 'SI' ? 9.81 : 32.2, geo) : 0;
 
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [showAnimation, setShowAnimation] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
 
-  const warnings = useMemo(() => getFlowWarnings({ Fr, y, n, S0: Sf }), [Fr, y, n, Sf]);
+  const warnings = getFlowWarnings({ Fr, y, n, S0: Sf });
 
   const sweepCalcFn = useCallback((inputs: Record<string, number | string>) => {
     const p: ChannelParams = { shape: inputs.shape as ChannelShape, b: +inputs.b, m: +inputs.m, d: +inputs.d };

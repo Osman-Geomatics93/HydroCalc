@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/immutability */
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { Play, Pause } from 'lucide-react';
 import type { ChannelShape } from '../../types';
@@ -25,11 +26,12 @@ export function FlowAnimation({ shape, b = 5, m = 1.5, d = 2, y, V }: FlowAnimat
   const animRef = useRef<number>(0);
   const [playing, setPlaying] = useState(false);
   const { isDark } = useTheme();
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
@@ -197,7 +199,7 @@ export function FlowAnimation({ shape, b = 5, m = 1.5, d = 2, y, V }: FlowAnimat
     if (playing && !reducedMotion) {
       animRef.current = requestAnimationFrame(draw);
     }
-  }, [playing, isDark, y, V, shape, b, m, d, getChannelPath, reducedMotion]);
+  }, [playing, isDark, y, shape, b, m, d, getChannelPath, reducedMotion]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

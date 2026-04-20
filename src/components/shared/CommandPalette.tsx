@@ -86,10 +86,17 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
     onClose();
   }, [navigate, onClose, setRecentIds]);
 
-  useEffect(() => {
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open !== prevOpen) {
+    setPrevOpen(open);
     if (open) {
       setQuery('');
       setSelected(0);
+    }
+  }
+
+  useEffect(() => {
+    if (open) {
       setTimeout(() => inputRef.current?.focus(), 0);
     }
   }, [open]);
@@ -116,9 +123,11 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   }, [open, selected, filtered, select, onClose]);
 
   // Reset selection when results change
-  useEffect(() => {
+  const [prevQuery, setPrevQuery] = useState(query);
+  if (query !== prevQuery) {
+    setPrevQuery(query);
     setSelected(0);
-  }, [query]);
+  }
 
   if (!open) return null;
 

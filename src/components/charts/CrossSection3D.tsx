@@ -131,6 +131,7 @@ export function CrossSection3D({
           camera: { eye: { x: 1.5, y: 1.5, z: 1.2 } },
           aspectmode: 'manual',
           aspectratio: { x: 2, y: 1, z: 0.5 },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,
         margin: { t: 40, r: 0, b: 0, l: 0 },
       }}

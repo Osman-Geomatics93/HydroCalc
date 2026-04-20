@@ -89,6 +89,7 @@ export function EYDiagram({
     addPoint(alternateY.sup, `Supercritical: ${alternateY.sup.toFixed(3)}`, '#f59e0b');
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (event: any) => {
     if (!onDepthSelect || !event.points || event.points.length === 0) return;
     const clickedY = event.points[0].y;
@@ -107,6 +108,7 @@ export function EYDiagram({
         layout={{
           xaxis: { range: [0, yMax * 1.5] },
           yaxis: { range: [0, yMax] },
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(onDepthSelect ? { dragmode: false as any, hovermode: 'closest' as const } : {}),
         }}
         onClick={onDepthSelect ? handleClick : undefined}

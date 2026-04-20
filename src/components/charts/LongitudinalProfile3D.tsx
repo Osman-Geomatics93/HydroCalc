@@ -120,6 +120,7 @@ export function LongitudinalProfile3D({ steps, S0, yn, yc, lengthUnit, channelWi
         camera: { eye: { x: 1.5, y: 1.5, z: 0.8 } },
         aspectmode: 'manual',
         aspectratio: { x: 2, y: 0.5, z: 0.8 },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
     };
 

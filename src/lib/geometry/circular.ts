@@ -21,6 +21,7 @@ export function circularGeometry(d: number, y: number): ChannelGeometry {
   return { A, P, R, T, D };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function circularCrossSection(d: number, _y: number): { x: number[]; y: number[] } {
   const r = d / 2;
   const n = 50;

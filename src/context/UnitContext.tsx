@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, type ReactNode } from 'react';
 import type { UnitSystem, UnitLabels } from '../types';
 import { getUnitLabels } from '../lib/utils/units';

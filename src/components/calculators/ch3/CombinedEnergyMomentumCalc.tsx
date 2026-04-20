@@ -96,6 +96,7 @@ export default function CombinedEnergyMomentumCalc() {
                 xLabel={`E (${labels.length})`}
                 yLabel={`y (${labels.length})`}
                 height={350}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onClick={(e: any) => {
                   if (e.points?.[0]?.y > 0) setY(Math.round(e.points[0].y * 1000) / 1000);
                 }}
@@ -115,6 +116,7 @@ export default function CombinedEnergyMomentumCalc() {
                 xLabel={`M (${labels.length}²)`}
                 yLabel={`y (${labels.length})`}
                 height={350}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onClick={(e: any) => {
                   if (e.points?.[0]?.y > 0) setY(Math.round(e.points[0].y * 1000) / 1000);
                 }}
