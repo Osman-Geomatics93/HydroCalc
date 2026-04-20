@@ -14,6 +14,7 @@ import { OfflineIndicator } from '../shared/OfflineIndicator';
 import { InstallPrompt } from '../shared/InstallPrompt';
 import { PresentMode } from '../shared/PresentMode';
 import { useHotkeys } from '../../hooks/useHotkeys';
+import { usePageTitle } from '../../hooks/usePageTitle';
 import { useUnits } from '../../context/UnitContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useSliderMode } from '../../context/SliderModeContext';
@@ -45,6 +46,7 @@ export function AppLayout() {
   const { toggleSliderMode } = useSliderMode();
   const { addCalculation, checkBadges } = useProgress();
   const location = useLocation();
+  usePageTitle();
 
   // Track calculator usage
   useEffect(() => {

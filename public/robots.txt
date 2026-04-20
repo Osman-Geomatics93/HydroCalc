@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hydro-calc.vercel.app/sitemap.xml

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hydro-calc.vercel.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch1/geometry</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch1/froude</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch2/energy</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch2/critical-depth</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch2/alternate-depths</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch2/obstructions</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch3/momentum</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch3/hydraulic-jump</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch3/combined</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch4/manning</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch4/normal-depth</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch4/classification</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch5/taxonomy</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch5/composite</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch6/standard-step</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch6/profiles</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch6/multi-reach</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch7/fall-velocity</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch7/shields</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/ch7/bed-load</loc><priority>0.8</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/design-wizard</loc><priority>0.7</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/cheat-sheet</loc><priority>0.7</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/workflow</loc><priority>0.7</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/case-studies</loc><priority>0.7</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/batch</loc><priority>0.7</priority></url>
+  <url><loc>https://hydro-calc.vercel.app/reference</loc><priority>0.6</priority></url>
+</urlset>
