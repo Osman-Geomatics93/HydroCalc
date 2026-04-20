@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import { ChevronRight, ChevronLeft, Wand2, CheckCircle2 } from 'lucide-react';
 import { useUnits } from '../../context/UnitContext';
-import { designChannel, bestHydraulicSection, checkVelocityLimits } from '../../lib/design/channel-design';
-import { FormulaDisplay, ResultCard } from '../shared';
+import { designChannel, bestHydraulicSection } from '../../lib/design/channel-design';
+import { ResultCard } from '../shared';
 import type { ChannelShape } from '../../types';
 import type { DesignConstraints, DesignResult } from '../../types/design';
 

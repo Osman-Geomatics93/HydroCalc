@@ -254,7 +254,7 @@ function normalDepthSteps(shape: string): SolutionStep[] {
       const target = (i.n * i.Q) / (i.k * Math.sqrt(i.S0));
       let yn = 1;
       for (let it = 0; it < 60; it++) {
-        const { A, R, P } = geo(shape, { ...i, y: yn });
+        const { A, R } = geo(shape, { ...i, y: yn });
         const f = A * Math.pow(R, 2 / 3) - target;
         // numerical derivative
         const dy = 1e-6;

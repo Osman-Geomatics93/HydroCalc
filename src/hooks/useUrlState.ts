@@ -2,12 +2,13 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 
 export function useUrlState(key: string, defaultValue: number, opts?: { pushHistory?: boolean }): [number, (v: number) => void];
 export function useUrlState(key: string, defaultValue: string, opts?: { pushHistory?: boolean }): [string, (v: string) => void];
-export function useUrlState(key: string, defaultValue: number | string, opts?: { pushHistory?: boolean }): [number | string, (v: number | string) => void] {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function useUrlState(key: string, defaultValue: any, opts?: { pushHistory?: boolean }): [any, (v: any) => void] {
   const isNumber = typeof defaultValue === 'number';
   const pushHistory = opts?.pushHistory ?? false;
-  const debounceRef = useRef<ReturnType<typeof setTimeout>>();
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
-  const [value, setValue] = useState<number | string>(() => {
+  const [value, setValue] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     const param = params.get(key);
     if (param === null) return defaultValue;
@@ -62,5 +63,5 @@ export function useUrlState(key: string, defaultValue: number | string, opts?: {
     setValue(v);
   }, []);
 
-  return [value, set] as [number | string, (v: number | string) => void];
+  return [value, set];
 }

@@ -18,7 +18,6 @@ export function LongitudinalProfile3D({ steps, S0, yn, yc, lengthUnit, channelWi
 
     const xVals = steps.map((s) => s.x);
     const halfW = channelWidth / 2;
-    const crossY = [-halfW, halfW];
 
     // Channel bed surface: z = -S0 * x
     const bedX: number[][] = [];

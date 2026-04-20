@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getFlowWarnings, type Warning } from './flow-warnings';
+import { getFlowWarnings } from './flow-warnings';
 
 describe('getFlowWarnings', () => {
   it('returns empty array for no warnings', () => {

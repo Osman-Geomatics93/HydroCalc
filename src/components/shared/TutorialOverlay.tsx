@@ -10,7 +10,7 @@ interface TutorialOverlayProps {
 export function TutorialOverlay({ tutorial, onClose }: TutorialOverlayProps) {
   const [step, setStep] = useState(0);
   const [rect, setRect] = useState<DOMRect | null>(null);
-  const [seenTutorials, setSeenTutorials] = useLocalStorage<Record<string, boolean>>('hydro-tutorials-seen', {});
+  const [, setSeenTutorials] = useLocalStorage<Record<string, boolean>>('hydro-tutorials-seen', {});
   const cardRef = useRef<HTMLDivElement>(null);
 
   const currentStep = tutorial?.steps[step];

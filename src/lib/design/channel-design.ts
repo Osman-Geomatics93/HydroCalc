@@ -2,7 +2,6 @@ import type { ChannelShape, ChannelParams, UnitSystem } from '../../types';
 import type { DesignConstraints, DesignResult } from '../../types/design';
 import { computeGeometry } from '../geometry';
 import { normalDepth } from '../friction/normal-depth';
-import { criticalDepth } from '../../lib/energy/critical-depth';
 import { froudeFromQ } from '../../lib/energy/froude';
 
 /**
@@ -132,7 +131,6 @@ export function designChannel(
 
   const geo = computeGeometry(params, yn);
   const V = geo.A > 0 ? Q / geo.A : 0;
-  const yc = criticalDepth(Q, g, params);
   const Fr = geo.A > 0 ? froudeFromQ(Q, g, geo) : 0;
 
   // Best section efficiency = (R of this design) / (R of best design)

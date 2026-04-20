@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useUnits } from '../../../context/UnitContext';
 import { normalDepth } from '../../../lib/friction/normal-depth';
 import { criticalDepth } from '../../../lib/energy/critical-depth';
